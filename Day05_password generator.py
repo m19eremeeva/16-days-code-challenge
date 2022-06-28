@@ -18,4 +18,4 @@ for i in range(nr_numbers):
 for i in range(nr_symbols):
     password.append(random.choice(symbols))
 random.shuffle(password)
-print(''.join(password))
+print(f"Your password is {''.join(password)}")
