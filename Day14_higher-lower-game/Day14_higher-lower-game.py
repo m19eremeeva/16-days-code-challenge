@@ -25,11 +25,13 @@ def compare_two_items(item_a, item_b):
     return win_item
 
 
-def one_round(dataset):
+def one_round():
     global item_A, count, game_over
     print(
         f'Compare A: {item_A["name"]}, a {item_A["description"]}, from {item_A["country"]}')
-    item_b, dataset = exclude_one_item(dataset)
+    item_b = random.choice(data)
+    if item_b == item_A:
+        item_b = random.choice(data)
     print('vs')
     print(
         f'Against B: {item_b["name"]}, a {item_b["description"]}, from {item_b["country"]}')
@@ -45,11 +47,10 @@ def one_round(dataset):
         count += 1
         print(f"You're right! Current score: {count}")
     item_A = item_b
-    return dataset
 
 
 count = 0
 
-item_A, data = exclude_one_item(data)
+item_A = random.choice(data)
 while not game_over:
-    one_round(data)
+    one_round()
